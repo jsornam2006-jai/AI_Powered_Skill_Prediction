@@ -107,7 +107,63 @@ if st.button("🔮 Predict Career", type="primary"):
         ),
         use_container_width=True
     )
-    
+
+    # Learning Recommendations
+    st.subheader("📚 Learning Recommendations")
+
+    learning_paths = {
+        "Machine Learning Engineer": [
+            "Advanced Python",
+            "Machine Learning",
+            "Deep Learning",
+            "SQL",
+            "Cloud Computing"
+        ],
+        "AI Engineer": [
+            "Python",
+            "Machine Learning",
+            "Deep Learning",
+            "Natural Language Processing",
+            "Cloud Computing"
+        ],
+        "Data Scientist": [
+            "Python",
+            "SQL",
+            "Machine Learning",
+            "Data Analysis",
+            "Natural Language Processing"
+        ],
+        "Data Analyst": [
+            "Python",
+            "SQL",
+            "Data Analysis",
+            "Power BI"
+        ],
+        "Web Developer": [
+            "Python",
+            "Web Development",
+            "SQL",
+            "JavaScript"
+        ],
+        "Software Developer": [
+            "Python",
+            "Java",
+            "SQL",
+            "Web Development"
+        ]
+    }
+
+    recommended_learning = learning_paths.get(prediction, [])
+
+    st.write(
+        f"Based on your predicted career **{prediction}**, "
+        "you can focus on learning:"
+    )
+
+    for skill in recommended_learning:
+        st.write(f"📖 **{skill}**")
+
+        
     # Career Recommendations
     st.subheader("💡 Career Recommendations")
 
@@ -167,60 +223,3 @@ st.bar_chart(
 
 st.write("Skill demand is calculated from the project dataset.")
 
-# Learning Recommendations
-
-st.divider()
-
-st.subheader("📚 Learning Recommendations")
-
-learning_paths = {
-    "Machine Learning Engineer": [
-        "Advanced Python",
-        "Machine Learning",
-        "Deep Learning",
-        "SQL",
-        "Cloud Computing"
-    ],
-    "AI Engineer": [
-        "Python",
-        "Machine Learning",
-        "Deep Learning",
-        "Natural Language Processing",
-        "Cloud Computing"
-    ],
-    "Data Scientist": [
-        "Python",
-        "SQL",
-        "Machine Learning",
-        "Data Analysis",
-        "Natural Language Processing"
-    ],
-    "Data Analyst": [
-        "Python",
-        "SQL",
-        "Data Analysis",
-        "Power BI"
-    ],
-    "Web Developer": [
-        "Python",
-        "Web Development",
-        "SQL",
-        "JavaScript"
-    ],
-    "Software Developer": [
-        "Python",
-        "Java",
-        "SQL",
-        "Web Development"
-    ]
-}
-
-recommended_learning = learning_paths.get(prediction, [])
-
-st.write(
-    f"Based on your predicted career **{prediction}**, "
-    "you can focus on learning:"
-)
-
-for skill in recommended_learning:
-    st.write(f"📖 **{skill}**")
